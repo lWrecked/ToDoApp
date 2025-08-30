@@ -14,8 +14,15 @@ taskAdd = ttk.Entry(mainFrame)
 taskAdd.grid(column= 1, row= 1, sticky=(W))
 
 def taskText():
-    taskTxt = ttk.Label(mainFrame,text= taskAdd.get())
+    taskContainer = Frame(mainFrame)
+    taskContainer.grid(sticky=(W))
+
+    
+    taskTxt = ttk.Label(taskContainer,text= taskAdd.get())
     taskTxt.grid(sticky=(W))
+
+    taskDoneButton = ttk.Button(taskContainer, command= taskContainer.destroy, text= "Task Complete")
+    taskDoneButton.grid(sticky=(W), padx= 10)
 
 taskAddButton = ttk.Button(mainFrame,command = taskText, text= "AddTask")
 taskAddButton.grid(column= 2, row = 1,sticky=(W))
